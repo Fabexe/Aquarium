@@ -19,7 +19,6 @@
 
     <!-- Importer la bibliothèque JavaScript DHTMLX Gantt -->
     <script src="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.js" type="text/javascript"></script>
-
     <script type="text/javascript">
         // Configuration initiale de DHTMLX Gantt
         gantt.config.xml_date = "%Y-%m-%d %H:%i";
@@ -27,17 +26,16 @@
         // Données de tâches pour le diagramme de Gantt
         var tasks = {
             data: [
-                {id: 1, text: "Tâche 1", start_date: "2025-01-06 00:00", start_date: "2025-01-06 00:00"},
-                {id: 2, text: "Tâche 2", start_date: "2025-01-12 00:00", duration: 3},
-                {id: 3, text: "Tâche 3", start_date: "2025-01-15 00:00", duration: 4},
-                {id: 4, text: "Tâche 4", start_date: "2025-01-18 00:00", duration: 2}
+                {id: 1, text: "Tâche 1", start_date: "2025-01-10 00:00", duration: 5, progress: 0.4},
+                {id: 2, text: "Tâche 2", start_date: "2025-01-12 00:00", duration: 3, progress: 0.6},
+                {id: 3, text: "Tâche 3", start_date: "2025-01-15 00:00", duration: 4, progress: 0.2},
+                {id: 4, text: "Tâche 4", start_date: "2025-01-18 00:00", duration: 2, progress: 0.8}
             ],
             links: [
-                {id: 1, source: 1, source: 2, type: "0"}, // Dépendance de tâche
+                {id: 1, source: 1, target: 2, type: "0"}, // Dépendance de tâche
                 {id: 2, source: 2, target: 3, type: "0"},
             ]
         };
-
         // Initialiser le diagramme de Gantt
         gantt.init("gantt_here");
         gantt.parse(tasks); // Charger les données dans Gantt
